@@ -2,11 +2,11 @@ package com.pvsb.newsapiapp.presentation.mainPresentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Adapter
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pvsb.newsapiapp.databinding.ActivityMainBinding
+import com.pvsb.newsapiapp.presentation.mainPresentation.adapter.MainAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {

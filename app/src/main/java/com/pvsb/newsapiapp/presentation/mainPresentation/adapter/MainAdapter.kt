@@ -1,4 +1,4 @@
-package com.pvsb.newsapiapp.presentation.mainPresentation
+package com.pvsb.newsapiapp.presentation.mainPresentation.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
