@@ -1,4 +1,4 @@
-package com.pvsb.newsapiapp.presentation.mainPresentation
+package com.pvsb.newsapiapp.presentation.mainPresentation.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,31 +11,17 @@ import com.bumptech.glide.Glide
 import com.pvsb.newsapiapp.R
 import com.pvsb.newsapiapp.model.NewsEntity
 
-class MainAdapter(context: Context): RecyclerView.Adapter<MainAdapter.NewsViewHolder>() {
+class MainAdapter(
+    context: Context
+): RecyclerView.Adapter<MainAdapter.NewsViewHolder>() {
 
     private var news: List<NewsEntity> = ArrayList()
 
-    inner class NewsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-
-        private val newsImage = itemView.findViewById<ImageView>(R.id.news_image)
-        private val newsTitle = itemView.findViewById<TextView>(R.id.news_title)
-
-        fun onBind(newsEntity: NewsEntity){
-
-            newsTitle.text = newsEntity.title
-
-            Glide.with(itemView.context)
-                .load(newsEntity.urlToImage)
-                .into(newsImage)
-
-        }
-    }
+    private lateinit var mNewsListener: NewsListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
-
         val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
         return NewsViewHolder(view)
-
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
@@ -53,4 +39,25 @@ class MainAdapter(context: Context): RecyclerView.Adapter<MainAdapter.NewsViewHo
         notifyDataSetChanged()
     }
 
+    inner class NewsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+
+        private val newsImage = itemView.findViewById<ImageView>(R.id.news_image)
+        private val newsTitle = itemView.findViewById<TextView>(R.id.news_title)
+
+        fun onBind(newsEntity: NewsEntity){
+            newsTitle.text = newsEntity.title
+
+            Glide.with(itemView.context)
+                .load(newsEntity.urlToImage)
+                .into(newsImage)
+
+            itemView.setOnClickListener {
+                mNewsListener.onClick()
+            }
+        }
+    }
+
+    fun attachListener(listener: NewsListener){
+        mNewsListener = listener
+    }
 }

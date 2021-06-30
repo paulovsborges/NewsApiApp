@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.mainPresentation.MainActivity">
+    tools:context=".presentation.mainPresentation.MainActivity"
+    android:padding="8dp"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
