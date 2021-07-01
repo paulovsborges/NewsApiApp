@@ -1,5 +1,6 @@
 package com.pvsb.newsapiapp.presentation.mainPresentation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -7,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pvsb.newsapiapp.databinding.ActivityMainBinding
+import com.pvsb.newsapiapp.presentation.detailsPresentation.DetailsActivity
 import com.pvsb.newsapiapp.presentation.mainPresentation.adapter.MainAdapter
 import com.pvsb.newsapiapp.presentation.mainPresentation.adapter.NewsListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         setListener()
         initiateListener()
 
-
     }
 
     private fun initiateListener(){
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
     private fun setListener(){
         mListener = object : NewsListener{
             override fun onClick() {
+
             }
         }
     }
