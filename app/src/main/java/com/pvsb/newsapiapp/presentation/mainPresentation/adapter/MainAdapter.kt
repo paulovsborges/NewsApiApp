@@ -52,7 +52,7 @@ class MainAdapter(
                 .into(newsImage)
 
             itemView.setOnClickListener {
-                mNewsListener.onClick()
+                mNewsListener.onClick(adapterPosition)
             }
         }
     }
@@ -60,4 +60,6 @@ class MainAdapter(
     fun attachListener(listener: NewsListener){
         mNewsListener = listener
     }
+
+    fun getData() = news
 }

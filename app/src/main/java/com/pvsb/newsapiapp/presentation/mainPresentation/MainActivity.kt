@@ -1,13 +1,14 @@
 package com.pvsb.newsapiapp.presentation.mainPresentation
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pvsb.newsapiapp.databinding.ActivityMainBinding
+import com.pvsb.newsapiapp.model.constants.AppConstants
 import com.pvsb.newsapiapp.presentation.detailsPresentation.DetailsActivity
 import com.pvsb.newsapiapp.presentation.mainPresentation.adapter.MainAdapter
 import com.pvsb.newsapiapp.presentation.mainPresentation.adapter.NewsListener
@@ -32,12 +33,19 @@ class MainActivity : AppCompatActivity() {
         observeViewModel()
         setListener()
         initiateListener()
+        refreshPage()
+    }
 
+    private fun refreshPage() {
+        binding.refreshLayout.setOnRefreshListener {
+            Toast.makeText(this, "Page refreshed", Toast.LENGTH_SHORT).show()
+            binding.refreshLayout.isRefreshing = false
+            viewModel.getNewsViewModel()
+        }
     }
 
     private fun initiateListener(){
         mAdapter.attachListener(mListener)
-
     }
 
     private fun initiateAdapter() {
@@ -50,8 +58,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun setListener(){
         mListener = object : NewsListener{
-            override fun onClick() {
+            override fun onClick(position: Int) {
 
+                if(mAdapter.getData().isNotEmpty()){
+                    val searchItem = mAdapter.getData()[position]
+                    searchItem?.let { news ->
+                        val intent = Intent(applicationContext, DetailsActivity::class.java)
+                        intent.putExtra(AppConstants.INTENT_AUTHOR, news.author)
+                        intent.putExtra(AppConstants.INTENT_TITLE, news.title)
+                        intent.putExtra(AppConstants.INTENT_DESCRIPTION, news.description)
+                        intent.putExtra(AppConstants.INTENT_URL, news.url)
+                        intent.putExtra(AppConstants.INTENT_URL_TO_IMAGE, news.urlToImage)
+                        intent.putExtra(AppConstants.INTENT_CONTENT, news.content)
+                        startActivity(intent)
+                    }
+                }
             }
         }
     }

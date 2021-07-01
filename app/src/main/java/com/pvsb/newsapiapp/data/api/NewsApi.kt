@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface NewsApi {
 
-    @GET("/v2/everything?q=bitcoin&apiKey=eb14adb4f30842efa48f919d726b52e8")
+    @GET("/v2/everything?q=tesla&apiKey=eb14adb4f30842efa48f919d726b52e8")
     suspend fun getNews(
      //   @Query("articles")sources : String = ""
 

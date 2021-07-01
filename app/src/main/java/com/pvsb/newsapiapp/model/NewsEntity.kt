@@ -9,5 +9,4 @@ data class NewsEntity (
     val urlToImage: String,
     val publishedAt: String,
     val content: String
-
 )
