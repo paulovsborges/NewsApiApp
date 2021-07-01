@@ -31,7 +31,7 @@ android {
         jvmTarget = '1.8'
     }
 
-    viewBinding{
+    viewBinding {
         enabled = true
     }
 }
@@ -45,6 +45,9 @@ dependencies {
     implementation "io.insert-koin:koin-androidx-scope:$koin_version"
     // Koin AndroidX ViewModel features
     implementation "io.insert-koin:koin-androidx-viewmodel:$koin_version"
+
+    //SwipeRefresh
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
     //retrofit
     def retrofit_version = "2.9.0"
