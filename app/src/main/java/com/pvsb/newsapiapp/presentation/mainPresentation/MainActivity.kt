@@ -18,6 +18,7 @@ import com.pvsb.newsapiapp.presentation.detailsPresentation.DetailsActivity
 import com.pvsb.newsapiapp.presentation.mainPresentation.adapter.MainAdapter
 import com.pvsb.newsapiapp.presentation.mainPresentation.adapter.NewsListener
 import com.pvsb.newsapiapp.presentation.preferences.MyPreferences
+
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {

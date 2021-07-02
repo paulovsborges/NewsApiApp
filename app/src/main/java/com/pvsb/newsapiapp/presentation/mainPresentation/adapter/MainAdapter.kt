@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.pvsb.newsapiapp.R
 import com.pvsb.newsapiapp.model.NewsEntity
 
+
 class MainAdapter(
     context: Context
 ): RecyclerView.Adapter<MainAdapter.NewsViewHolder>() {
@@ -22,6 +23,7 @@ class MainAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
         return NewsViewHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
@@ -38,6 +40,7 @@ class MainAdapter(
     private fun  update(){
         notifyDataSetChanged()
     }
+
 
     inner class NewsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
@@ -62,4 +65,5 @@ class MainAdapter(
     }
 
     fun getData() = news
+
 }
