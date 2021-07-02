@@ -4,4 +4,6 @@
     <string name="button_refresh">button refresh</string>
     <string name="save_image">Save image</string>
     <string name="share_article">Share article</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="change_theme">Change theme</string>
 </resources>

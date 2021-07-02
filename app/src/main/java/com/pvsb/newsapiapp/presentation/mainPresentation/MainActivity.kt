@@ -2,8 +2,12 @@ package com.pvsb.newsapiapp.presentation.mainPresentation
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.R
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,7 +38,29 @@ class MainActivity : AppCompatActivity() {
         setListener()
         initiateListener()
         refreshPage()
+    //    changeTheme()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(com.pvsb.newsapiapp.R.menu.main_menu_scrolling, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when(item.itemId){
+
+            else ->{
+                super.onOptionsItemSelected(item)
+            }
+
+        }
+    }
+
+   // private fun changeTheme() {
+  //      val builder = AlertDialog.Builder(this)
+ //       builder.setTitle(getString(R.string.light_mode))
+  //  }
 
     private fun refreshPage() {
         binding.refreshLayout.setOnRefreshListener {
