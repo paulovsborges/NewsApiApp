@@ -4,76 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.detailsPresentation.DetailsActivity"
-    android:padding="8dp"
     android:orientation="vertical"
-    >
+    android:padding="8dp"
+    tools:context=".presentation.detailsPresentation.DetailsActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:id="@+id/news_details_image"
-        />
-    <TextView
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/news_details_title"
-        tools:text="title"
-        android:textColor="@color/black"
-        android:layout_marginBottom="8dp"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/news_details_author"
-        tools:text="author"
-        android:textColor="@color/black"
-        android:layout_marginBottom="8dp"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/news_details_description"
-        tools:text="description"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:layout_marginBottom="8dp"
-        />
+        <ImageView
+            android:id="@+id/news_details_image"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/news_details_url"
-        tools:text="url"
-        android:textColor="@color/black"
-        android:layout_marginBottom="8dp"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/news_details_publishedAt"
-        tools:text="june 19 2021"
-        android:textColor="@color/black"
-        />
+        <TextView
+            android:id="@+id/news_details_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="title" />
 
-    <TextView
-        android:textSize="15sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/news_details_content"
-        tools:text="content"
-        android:textColor="@color/black"
-        android:layout_marginBottom="8dp"
-        android:scrollbarSize="5000dp"
-        />
+        <TextView
+            android:id="@+id/news_details_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            tools:text="author" />
 
+        <TextView
+            android:id="@+id/news_details_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="20sp"
+            tools:text="description" />
+
+        <TextView
+            android:id="@+id/news_details_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            tools:text="url" />
+
+        <TextView
+            android:id="@+id/news_details_publishedAt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="june 19 2021" />
+
+        <TextView
+            android:id="@+id/news_details_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:scrollbarSize="5000dp"
+            android:textSize="15sp"
+            tools:text="content" />
 
 
     </LinearLayout>
