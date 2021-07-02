@@ -3,25 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="8dp"
-    android:backgroundTint="#4E4E4E"
+
+    app:cardCornerRadius="5dp"
     android:layout_marginBottom="8dp"
     >
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
+
+        android:padding="8dp"
         >
+        
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:id="@+id/news_image"
             />
         <TextView
-            android:textStyle="bold"
+
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:textSize="20sp"
-            android:textColor="@color/white"
+            android:textStyle="bold"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/news_title"

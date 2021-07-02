@@ -21,7 +21,10 @@ class NewsDetailsResponse (
     val urlToImage: String,
 
     @SerializedName("publishedAt")
-    val publishedAt: String
+    val publishedAt: String,
+
+    @SerializedName("content")
+    val content: String
 
 
 ){
@@ -33,5 +36,6 @@ class NewsDetailsResponse (
         url = this.url,
         urlToImage = this.urlToImage,
         publishedAt = this.publishedAt,
+        content = this.content
     )
 }
