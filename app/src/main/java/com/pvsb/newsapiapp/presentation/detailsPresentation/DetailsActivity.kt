@@ -46,7 +46,8 @@ class DetailsActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_save -> {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                    Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
                     askPermission()
                 } else {
                     val url = intent.getStringExtra(AppConstants.INTENT_URL_TO_IMAGE)
@@ -122,7 +123,8 @@ class DetailsActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE -> {
-                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                if ((grantResults.isNotEmpty() &&
+                            grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                     val url = intent.getStringExtra(AppConstants.INTENT_URL_TO_IMAGE)
                     val getUrl = url!!
                     downloadImage(getUrl)
@@ -153,7 +155,8 @@ class DetailsActivity : AppCompatActivity() {
         val downloadUri = Uri.parse(url)
 
         val request = DownloadManager.Request(downloadUri).apply {
-            setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
+            setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or
+                    DownloadManager.Request.NETWORK_MOBILE)
                 .setAllowedOverRoaming(false)
                 .setTitle(url.substring(url.lastIndexOf("/") + 1))
                 .setDescription("")
@@ -170,7 +173,8 @@ class DetailsActivity : AppCompatActivity() {
             while (downloading) {
                 val cursor: Cursor = downloadManager.query(query)
                 cursor.moveToFirst()
-                if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
+                if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) ==
+                    DownloadManager.STATUS_SUCCESSFUL) {
                     downloading = false
                 }
                 val status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS))
@@ -193,7 +197,8 @@ class DetailsActivity : AppCompatActivity() {
             DownloadManager.STATUS_PAUSED -> "Paused"
             DownloadManager.STATUS_PENDING -> "Pending"
             DownloadManager.STATUS_RUNNING -> "Downloading..."
-            DownloadManager.STATUS_SUCCESSFUL -> "Image downloaded in $directory" + File.separator + url.substring(
+            DownloadManager.STATUS_SUCCESSFUL -> "Image downloaded in $directory" + File.separator +
+                    url.substring(
                 url.lastIndexOf("/") + 1
             )
             else -> "Nothing to download"
