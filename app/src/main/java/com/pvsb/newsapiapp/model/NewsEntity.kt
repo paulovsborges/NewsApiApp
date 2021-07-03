@@ -1,7 +1,6 @@
 package com.pvsb.newsapiapp.model
 
 data class NewsEntity (
-
     val author: String,
     val title: String,
     val description: String,

@@ -14,5 +14,4 @@ object NewsResultToMapper {
         }
         return newsResultList
     }
-
 }

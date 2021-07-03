@@ -22,6 +22,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.pvsb.newsapiapp.R
 import com.pvsb.newsapiapp.databinding.ActivityDetailsBinding
 import com.pvsb.newsapiapp.model.constants.AppConstants
+import com.pvsb.newsapiapp.model.constants.AppConstants.lastMsg
+import com.pvsb.newsapiapp.model.constants.AppConstants.msg
 import java.io.File
 import java.io.FileOutputStream
 import java.util.jar.Manifest
@@ -34,7 +36,6 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setExtras()
     }
 
@@ -46,29 +47,38 @@ class DetailsActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_save -> {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
-                    Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-                    askPermission()
-                } else {
-                    val url = intent.getStringExtra(AppConstants.INTENT_URL_TO_IMAGE)
-                    val getUrl = url!!
-                    downloadImage(getUrl)
-                }
+                saveImage()
                 true
             }
             R.id.action_share -> {
-                val url = intent.getStringExtra(AppConstants.INTENT_URL)
-                val sendIntent: Intent = Intent().apply {
-                    action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, "$url")
-                    type = "text/plain"
-                }
-                val shareIntent = Intent.createChooser(sendIntent, null)
-                startActivity(shareIntent)
+                bottomSheet()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun saveImage() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+            Build.VERSION.SDK_INT < Build.VERSION_CODES.Q
+        ) {
+            askPermission()
+        } else {
+            val url = intent.getStringExtra(AppConstants.INTENT_URL_TO_IMAGE)
+            val getUrl = url!!
+            downloadImage(getUrl)
+        }
+    }
+
+    private fun bottomSheet() {
+        val url = intent.getStringExtra(AppConstants.INTENT_URL)
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "$url")
+            type = "text/plain"
+        }
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 
     private fun askPermission() {
@@ -133,14 +143,8 @@ class DetailsActivity : AppCompatActivity() {
                 }
                 return
             }
-            else -> {
-
-            }
         }
     }
-
-    var msg: String? = ""
-    var lastMsg: String = ""
 
     private fun downloadImage(url: String) {
 
@@ -212,8 +216,7 @@ class DetailsActivity : AppCompatActivity() {
         binding.newsDetailsDescription.text = intent.getStringExtra(AppConstants.INTENT_DESCRIPTION)
         binding.newsDetailsContent.text = intent.getStringExtra(AppConstants.INTENT_CONTENT)
         binding.newsDetailsUrl.text = intent.getStringExtra(AppConstants.INTENT_URL)
-        binding.newsDetailsPublishedAt.text =
-            intent.getStringExtra(AppConstants.INTENT_PUBLISHED_AT)
+        binding.newsDetailsPublishedAt.text = intent.getStringExtra(AppConstants.INTENT_PUBLISHED_AT)
 
         val newsImage = intent.getStringExtra(AppConstants.INTENT_URL_TO_IMAGE)
         Glide.with(this).load(newsImage)
