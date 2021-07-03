@@ -15,5 +15,4 @@ object AppConstants {
     //Download image function
     var msg: String? = ""
     var lastMsg: String = ""
-    
 }
