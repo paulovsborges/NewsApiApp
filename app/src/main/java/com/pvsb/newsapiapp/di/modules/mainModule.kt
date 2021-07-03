@@ -15,7 +15,6 @@ val viewModule = module {
 }
 
 val repositoryModule = module {
-
     single <Repository>{ RepositoryImpl(api = get()) }
 }
 

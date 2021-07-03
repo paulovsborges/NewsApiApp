@@ -46,29 +46,38 @@ class DetailsActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_save -> {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
-                    Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-                    askPermission()
-                } else {
-                    val url = intent.getStringExtra(AppConstants.INTENT_URL_TO_IMAGE)
-                    val getUrl = url!!
-                    downloadImage(getUrl)
-                }
+                saveImage()
                 true
             }
             R.id.action_share -> {
-                val url = intent.getStringExtra(AppConstants.INTENT_URL)
-                val sendIntent: Intent = Intent().apply {
-                    action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, "$url")
-                    type = "text/plain"
-                }
-                val shareIntent = Intent.createChooser(sendIntent, null)
-                startActivity(shareIntent)
+                bottomSheet()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun saveImage() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+            Build.VERSION.SDK_INT < Build.VERSION_CODES.Q
+        ) {
+            askPermission()
+        } else {
+            val url = intent.getStringExtra(AppConstants.INTENT_URL_TO_IMAGE)
+            val getUrl = url!!
+            downloadImage(getUrl)
+        }
+    }
+
+    private fun bottomSheet() {
+        val url = intent.getStringExtra(AppConstants.INTENT_URL)
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "$url")
+            type = "text/plain"
+        }
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 
     private fun askPermission() {
