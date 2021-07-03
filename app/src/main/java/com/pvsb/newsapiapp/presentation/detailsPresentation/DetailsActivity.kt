@@ -22,6 +22,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.pvsb.newsapiapp.R
 import com.pvsb.newsapiapp.databinding.ActivityDetailsBinding
 import com.pvsb.newsapiapp.model.constants.AppConstants
+import com.pvsb.newsapiapp.model.constants.AppConstants.lastMsg
+import com.pvsb.newsapiapp.model.constants.AppConstants.msg
 import java.io.File
 import java.io.FileOutputStream
 import java.util.jar.Manifest
@@ -34,7 +36,6 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setExtras()
     }
 
@@ -142,14 +143,8 @@ class DetailsActivity : AppCompatActivity() {
                 }
                 return
             }
-            else -> {
-
-            }
         }
     }
-
-    var msg: String? = ""
-    var lastMsg: String = ""
 
     private fun downloadImage(url: String) {
 
@@ -221,8 +216,7 @@ class DetailsActivity : AppCompatActivity() {
         binding.newsDetailsDescription.text = intent.getStringExtra(AppConstants.INTENT_DESCRIPTION)
         binding.newsDetailsContent.text = intent.getStringExtra(AppConstants.INTENT_CONTENT)
         binding.newsDetailsUrl.text = intent.getStringExtra(AppConstants.INTENT_URL)
-        binding.newsDetailsPublishedAt.text =
-            intent.getStringExtra(AppConstants.INTENT_PUBLISHED_AT)
+        binding.newsDetailsPublishedAt.text = intent.getStringExtra(AppConstants.INTENT_PUBLISHED_AT)
 
         val newsImage = intent.getStringExtra(AppConstants.INTENT_URL_TO_IMAGE)
         Glide.with(this).load(newsImage)

@@ -47,15 +47,11 @@ class MainActivity : AppCompatActivity() {
 
         return when (item.itemId) {
             R.id.action_change_theme -> {
-
                 val builder = AlertDialog.Builder(this)
                     .setTitle(getString(R.string.change_theme))
-
                 val styles = arrayOf("Light", "Dark")
                 val checkedItem = 0
-
                 builder.setSingleChoiceItems(styles, checkedItem) { dialog, which ->
-
                     when (which) {
                         0 -> {
                             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -65,7 +61,6 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
-
                 val dialog = builder.create()
                 dialog.show()
                 true
@@ -99,19 +94,24 @@ class MainActivity : AppCompatActivity() {
     private fun setListener() {
         mListener = object : NewsListener {
             override fun onClick(position: Int) {
-                if (mAdapter.getData().isNotEmpty()) {
-                    val searchItem = mAdapter.getData()[position]
-                    searchItem.let { news ->
-                        val intent = Intent(applicationContext, DetailsActivity::class.java)
-                        intent.putExtra(AppConstants.INTENT_AUTHOR, news.author)
-                        intent.putExtra(AppConstants.INTENT_TITLE, news.title)
-                        intent.putExtra(AppConstants.INTENT_DESCRIPTION, news.description)
-                        intent.putExtra(AppConstants.INTENT_URL, news.url)
-                        intent.putExtra(AppConstants.INTENT_URL_TO_IMAGE, news.urlToImage)
-                        intent.putExtra(AppConstants.INTENT_CONTENT, news.content)
-                        startActivity(intent)
-                    }
-                }
+                sendExtras(position)
+            }
+        }
+    }
+
+    private fun sendExtras(position: Int) {
+        if (mAdapter.getData().isNotEmpty()) {
+            val searchItem = mAdapter.getData()[position]
+            searchItem.let { news ->
+                val intent = Intent(applicationContext, DetailsActivity::class.java)
+                intent.putExtra(AppConstants.INTENT_AUTHOR, news.author)
+                intent.putExtra(AppConstants.INTENT_TITLE, news.title)
+                intent.putExtra(AppConstants.INTENT_DESCRIPTION, news.description)
+                intent.putExtra(AppConstants.INTENT_URL, news.url)
+                intent.putExtra(AppConstants.INTENT_URL_TO_IMAGE, news.urlToImage)
+                intent.putExtra(AppConstants.INTENT_CONTENT, news.content)
+                intent.putExtra(AppConstants.INTENT_PUBLISHED_AT, news.publishedAt)
+                startActivity(intent)
             }
         }
     }

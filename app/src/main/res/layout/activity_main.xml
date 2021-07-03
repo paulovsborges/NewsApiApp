@@ -3,28 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
     android:layout_height="match_parent"
-    tools:context=".presentation.mainPresentation.MainActivity"
     android:padding="8dp"
-    >
+    tools:context=".presentation.mainPresentation.MainActivity">
 
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/refresh_layout"
-
-    >
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_margin="8dp"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recyclerView_Main"
+        android:layout_height="match_parent">
 
-        app:layout_constraintTop_toTopOf="parent"
-
-
-        />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_Main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
