@@ -74,6 +74,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Retrofit](https://square.github.io/retrofit/)
 - [BottomSheet](https://developer.android.com/reference/com/google/android/material/bottomsheet/BottomSheetBehavior)
 - [SwipeRefresh](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout?hl=pt-br)
-- [OkHttpeClient](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/)
+- [OkHttpClient](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/)
 
 
