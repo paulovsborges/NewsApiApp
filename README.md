@@ -1,6 +1,6 @@
 
 # App de notícias 
-####  | Coroutines | Koin | MVVM | Retrofit | BottomSheet | RecyclerView | SwipeRefresh | OkHttpClient | light/Dark mode |
+####  | Coroutines | Koin | MVVM | Retrofit | BottomSheet | RecyclerView | SwipeRefresh | OkHttpClient | light/Dark mode 
 
 **Projeto**
 
