@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit
 private const val CONNECTION_TIMEOUT: Long = 6000L
 private const val BASEURL: String = "https://newsapi.org/"
 
-
 internal fun provideOkHttpClient(): OkHttpClient {
 
     val client = OkHttpClient.Builder()

@@ -9,12 +9,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-
     private val repository: Repository
 ) : ViewModel() {
 
     val newsLiveData: MutableLiveData<List<NewsEntity>> = MutableLiveData()
-
 
     fun getNewsViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
