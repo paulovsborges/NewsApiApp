@@ -25,8 +25,6 @@ class NewsDetailsResponse (
 
     @SerializedName("content")
     val content: String
-
-
 ){
 
     fun getNewsModel() =  NewsEntity(
