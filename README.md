@@ -41,7 +41,7 @@ Mostrar o meu nível técnico atual nas tecnologias utilizadas no projeto.
 
 ### Imagens do app 
 #### OBS.: EM TODAS AS TELAS FOI IMPLEMENTADO UM SCROLL PARA O USUÁRIO VISUALIZAR TODA A TELA
-#### OBS.: NO TOPO DA LISTA BASTA PUXAR A TELA PARA CIMA PARA REALIZAR UM REFRESH
+#### OBS.: NO TOPO DA LISTA PRINCIPAL, BASTA PUXAR A TELA PARA CIMA PARA REALIZAR UM REFRESH
 <p align="center">
  
   <img align="center" height="400em" src="https://user-images.githubusercontent.com/82162410/124386454-e2103580-dcb0-11eb-93a9-4d5231c1db72.png"/>
