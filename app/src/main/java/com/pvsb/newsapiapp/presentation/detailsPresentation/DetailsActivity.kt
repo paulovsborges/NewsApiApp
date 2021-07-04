@@ -138,10 +138,7 @@ class DetailsActivity : AppCompatActivity() {
                     val url = intent.getStringExtra(AppConstants.INTENT_URL_TO_IMAGE)
                     val getUrl = url!!
                     downloadImage(getUrl)
-                } else {
-
                 }
-                return
             }
         }
     }
@@ -149,13 +146,11 @@ class DetailsActivity : AppCompatActivity() {
     private fun downloadImage(url: String) {
 
         val directory = File(Environment.DIRECTORY_DOWNLOADS)
-
         if (!directory.exists()) {
             directory.mkdirs()
         }
 
         val downloadManager = this.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-
         val downloadUri = Uri.parse(url)
 
         val request = DownloadManager.Request(downloadUri).apply {
@@ -172,7 +167,7 @@ class DetailsActivity : AppCompatActivity() {
 
         val downloadId = downloadManager.enqueue(request)
         val query = DownloadManager.Query().setFilterById(downloadId)
-        Thread(Runnable {
+        Thread {
             var downloading = true
             while (downloading) {
                 val cursor: Cursor = downloadManager.query(query)
@@ -191,7 +186,7 @@ class DetailsActivity : AppCompatActivity() {
                 }
                 cursor.close()
             }
-        }).start()
+        }.start()
     }
 
     private fun statusMessage(url: String, directory: File, status: Int): String? {
