@@ -46,10 +46,17 @@ Mostrar o meu nível técnico atual nas tecnologias utilizadas no projeto.
  
   <img align="center" height="400em" src="https://user-images.githubusercontent.com/82162410/124386454-e2103580-dcb0-11eb-93a9-4d5231c1db72.png"/>
  <img align="center" height="400em" src="https://user-images.githubusercontent.com/82162410/124386500-2a2f5800-dcb1-11eb-8ac3-f36fa3e2a35a.png"/>
- <img align="center" height="400em" src="https://user-images.githubusercontent.com/82162410/124386392-9b224000-dcb0-11eb-9727-90380a655c01.png"/>
+
+ </p>
+ 
+ 
+  <p align="center">
+ 
+  <img align="center" height="400em" src="https://user-images.githubusercontent.com/82162410/124386392-9b224000-dcb0-11eb-9727-90380a655c01.png"/>
  <img align="center" height="400em" src="https://user-images.githubusercontent.com/82162410/124386478-0a982f80-dcb1-11eb-9172-6e0e417a96c0.png"/>
  
- </p>
+  </p>
+ 
  
  <p align="center">
   <img align="center" height="400em" src="https://user-images.githubusercontent.com/82162410/124386527-51862500-dcb1-11eb-8202-bbc807648ff4.png"/>
